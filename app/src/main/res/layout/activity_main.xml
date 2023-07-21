@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isLoading"
+            type="boolean" />
+        <variable
+            name="isUserReady"
+            type="boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.home.MainActivity"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.11" />
+
+        <ImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/avatar13"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:contentDescription="@string/back_button"
+            android:visibility="@{ isUserReady ? View.VISIBLE : View.GONE, default=gone}"/>
+
+        <TextView
+            android:id="@+id/user_name_home_page"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxEms="14"
+            android:maxLines="1"
+            android:minEms="1"
+            android:text="@string/full_name"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/profile_image_view"
+            app:layout_constraintEnd_toStartOf="@id/logout_image_view"
+            app:layout_constraintStart_toEndOf="@id/profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/profile_image_view"
+            android:visibility="@{ isUserReady ? View.VISIBLE : View.GONE, default=gone}"
+            />
+
+        <ImageView
+            android:id="@+id/logout_image_view"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/exit"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:contentDescription="@string/exit" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_top">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:backgroundTint="#F6F6F6"
+                android:elevation="@null"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sign_up_image">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_13sdp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/search"
+                        android:src="@drawable/search"
+                        app:tint="@color/dark_gray" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:background="@null"
+                        android:hint="@string/search_messages"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:padding="@dimen/_8sdp"
+                        android:textColorHint="@color/dark_gray"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{ isLoading ? View.GONE : View.VISIBLE, default=gone}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/add_new_chat_image_view"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/add_square"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_7sdp"
+            android:contentDescription="@string/back_button"
+            android:visibility="@{ isLoading ? View.GONE : View.VISIBLE, default=gone}"/>
+
+
+        <com.example.loadinganimation.LoadingAnimation
+            android:id="@+id/loadingAnim"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:elevation="10dp"
+            app:barType="@drawable/black_water"
+            app:boldText="false"
+            app:enlarge="5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColor="@color/black"
+            app:textSize="15sp"
+            android:visibility="@{ isLoading ? View.VISIBLE : View.GONE, default=gone}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isLoading"
+            type="boolean" />
+        <variable
+            name="isSmallLetterError"
+            type="boolean" />
+        <variable
+            name="isCapitalLetterError"
+            type="boolean" />
+        <variable
+            name="isDigitError"
+            type="boolean" />
+        <variable
+            name="isSpecialCharError"
+            type="boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.home.MainActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <ImageView
+            android:id="@+id/back_image_view_sign_up"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/back_square"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:contentDescription="@string/back_button" />
+        <ImageView
+            android:id="@+id/sign_up_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            android:contentDescription="@string/login_image" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sign_up"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:textColor="@color/dark_blue" />
+
+                <EditText
+                    android:id="@+id/email__sign_up_ETx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/dark_blue"
+                    android:hint="@string/e_mail"
+                    android:inputType="textEmailAddress"
+                    android:importantForAutofill="no"
+                    android:padding="15dp" />
+
+                <EditText
+                    android:id="@+id/name_sign_up_ETx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/dark_blue"
+                    android:hint="@string/full_name"
+                    android:inputType="textPersonName"
+                    android:importantForAutofill="no"
+                    android:padding="15dp" />
+
+                <EditText
+                    android:id="@+id/password_ETx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/dark_blue"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:importantForAutofill="no"
+                    android:padding="15dp" />
+
+                <TextView
+                    android:id="@+id/password_special_small_letter_tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_at_least_one_small_letter"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="start"
+                    android:textColor="@color/pink"
+                    android:visibility="@{isSmallLetterError ? View.VISIBLE : View.GONE, default=gone}" />
+
+                <TextView
+                    android:id="@+id/password_special_capital_letter_tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*Add at least one Capital letter"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="start"
+                    android:textColor="@color/pink"
+                    android:visibility="@{isCapitalLetterError ? View.VISIBLE : View.GONE, default=gone}" />
+
+                <TextView
+                    android:id="@+id/password_digit_error_tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*Add at at least one digit"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="start"
+                    android:textColor="@color/pink"
+                    android:visibility="@{isDigitError ? View.VISIBLE : View.GONE, default=gone}" />
+
+                <TextView
+                    android:id="@+id/password_special_char_error_tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*Add at least one special character"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="start"
+                    android:textColor="@color/pink"
+                    android:visibility="@{isSpecialCharError ? View.VISIBLE : View.GONE, default=gone}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15sp"
+                    android:layout_gravity="center"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="By signing up, you are agree to our"
+                        android:textStyle="normal"
+                        android:textSize="14sp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/terms_amp"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginStart="5dp"
+                        android:textAllCaps="true"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/pink" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/conditions_and_policies"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginStart="5dp"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
+                        android:textColor="@color/pink" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sign_up_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/sign_up"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/gradient_login_bt_background"
+                    android:textAllCaps="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15sp"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/have_an_account"
+                        android:textStyle="normal"
+                        android:textSize="16sp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/login_of_sign_up_tx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginStart="5dp"
+                        android:textAllCaps="true"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/pink" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="@{ isLoading ? View.VISIBLE : View.GONE, default=gone}" />
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

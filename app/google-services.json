@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "497431789884",
+    "firebase_url": "https://kotlinchatapp-f8f97-default-rtdb.firebaseio.com",
+    "project_id": "kotlinchatapp-f8f97",
+    "storage_bucket": "kotlinchatapp-f8f97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497431789884:android:bc35c806c5e37f6ddfde39",
+        "android_client_info": {
+          "package_name": "com.chating.chitchatopia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497431789884-grivigs2mliv866u341cvc9fo5ubp4id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhsETLVEnrMg-03wWEpITe_8vzMEOni_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497431789884-grivigs2mliv866u341cvc9fo5ubp4id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497431789884:android:fbf1611ad2004ebcdfde39",
+        "android_client_info": {
+          "package_name": "com.example.answersanqestions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497431789884-grivigs2mliv866u341cvc9fo5ubp4id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhsETLVEnrMg-03wWEpITe_8vzMEOni_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497431789884-grivigs2mliv866u341cvc9fo5ubp4id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497431789884:android:706608b6c05499ebdfde39",
+        "android_client_info": {
+          "package_name": "com.example.messangerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497431789884-grivigs2mliv866u341cvc9fo5ubp4id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhsETLVEnrMg-03wWEpITe_8vzMEOni_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497431789884-grivigs2mliv866u341cvc9fo5ubp4id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

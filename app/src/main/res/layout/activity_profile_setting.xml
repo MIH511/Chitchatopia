@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="isLoading"
+            type="boolean" />
+        <variable
+            name="isAvatarSelected"
+            type="boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.profile_setting.ProfileSettingActivity">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_your_avatar"
+            android:textSize="@dimen/_19sdp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_gray"
+            android:gravity="center"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_top1"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.22" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/guideline_top2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                android:layout_gravity="start">
+                <ImageView
+                    android:id="@+id/avatar_1"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:src="@drawable/avatar1"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"/>
+                <ImageView
+                    android:id="@+id/avatar_2"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/avatar2"
+                    android:scaleType="fitCenter"/>
+                <ImageView
+                    android:id="@+id/avatar_13"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:src="@drawable/avatar13"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp">
+                <ImageView
+                    android:id="@+id/avatar_14"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:src="@drawable/avatar14"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"/>
+                <ImageView
+                    android:id="@+id/avatar_5"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/avatar5"
+                    android:scaleType="fitCenter"/>
+                <ImageView
+                    android:id="@+id/avatar_6"
+                    android:layout_width="82dp"
+                    android:layout_height="82dp"
+                    android:src="@drawable/avatar6"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/avatar_7"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
+                android:src="@drawable/avatar7"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/choose_avatar_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:text="@string/next"
+                android:textColor="@color/pink"
+                android:layout_marginStart="90dp"
+                android:clickable="true"
+                android:visibility="@{isAvatarSelected ? View.VISIBLE : View.GONE, default=gone}"
+                android:layout_marginEnd="90dp"
+                android:background="@drawable/gradient_login_bt_background"/>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{ isLoading ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

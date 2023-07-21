@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/preview_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:scaleType="fitCenter"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/confirm_sending_image_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/gradient_login_bt_background"
+        android:text="@string/send"
+        android:textSize="@dimen/_13ssp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel_sending_image_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/gradient_login_bt_background"
+        android:text="@string/cancel"
+        android:textSize="@dimen/_13ssp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"/>
+
+
+</LinearLayout>
